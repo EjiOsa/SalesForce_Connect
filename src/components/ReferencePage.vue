@@ -8,6 +8,9 @@
         <h2>
           ホーム及びデータの参照をするページ。
         </h2>
+        <v-btn>Addition</v-btn>
+        <v-btn>Delete</v-btn>
+        <v-btn>Update</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
