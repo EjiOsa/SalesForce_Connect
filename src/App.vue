@@ -1,8 +1,7 @@
 <template>
-  <v-app>
-    <v-content 
-    transition="slide-x-transition"
-    >
+  <v-app class="grey lighten-4">
+    <NavBar />
+    <v-content>
       <router-view></router-view>
     </v-content>
   </v-app>
@@ -11,11 +10,13 @@
 <script lang="ts">
 import Vue from 'vue';
 // import HelloWorld from './components/HelloWorld.vue';
+import NavBar from "./components/NavigationBar.vue";
 
 export default Vue.extend({
   name: 'App',
   components: {
     // HelloWorld,
+    NavBar,
   },
   data: () => ({
     //
