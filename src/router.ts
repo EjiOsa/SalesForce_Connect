@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 // import Home from './views/Home.vue';
-import Reference from "./components/Pages/ReferencePage.vue";
-import Addition from "./components/Pages/AdditionPage.vue";
-import Delete from "./components/Pages/DeletePage.vue";
-import Update from "./components/Pages/UpdatePage.vue";
+import Reference from './components/Pages/ReferencePage.vue';
+import Addition from './components/Pages/AdditionPage.vue';
+import Delete from './components/Pages/DeletePage.vue';
+import Update from './components/Pages/UpdatePage.vue';
 
 Vue.use(Router);
 
