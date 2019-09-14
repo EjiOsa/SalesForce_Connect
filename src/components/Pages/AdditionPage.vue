@@ -16,8 +16,8 @@
 <script>
 export default {
 
-}
-</script>
+};
+</script lang="ts">
 
 <style>
 
