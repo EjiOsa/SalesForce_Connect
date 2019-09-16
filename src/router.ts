@@ -9,7 +9,7 @@ import Update from './components/Pages/UpdatePage.vue';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',　//vue-routerで#を削除するために必要だけど、buildすると画面遷移できない。そのうち再調査。
   base: process.env.BASE_URL,
   routes: [
     // {
