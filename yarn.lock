@@ -8725,10 +8725,10 @@ vuetify@^2.0.0:
   resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.0.15.tgz#aa04f5e9123a895d6f1f3162d76d8755555bec29"
   integrity sha1-qgT16RI6iV1vHzFi122HVVVb7Ck=
 
-vuex@^3.0.1:
+vuex@^3.1.1:
   version "3.1.1"
-  resolved "https://registry.npm.taobao.org/vuex/download/vuex-3.1.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuex%2Fdownload%2Fvuex-3.1.1.tgz#0c264bfe30cdbccf96ab9db3177d211828a5910e"
-  integrity sha1-DCZL/jDNvM+Wq52zF30hGCilkQ4=
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.1.1.tgz#0c264bfe30cdbccf96ab9db3177d211828a5910e"
+  integrity sha512-ER5moSbLZuNSMBFnEBVGhQ1uCBNJslH9W/Dw2W7GZN23UQA69uapP5GTT9Vm8Trc0PzBSVt6LzF3hGjmv41xcg==
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
