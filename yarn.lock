@@ -8725,6 +8725,11 @@ vuetify@^2.0.0:
   resolved "https://registry.npm.taobao.org/vuetify/download/vuetify-2.0.15.tgz#aa04f5e9123a895d6f1f3162d76d8755555bec29"
   integrity sha1-qgT16RI6iV1vHzFi122HVVVb7Ck=
 
+vuex-module-decorators@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/vuex-module-decorators/-/vuex-module-decorators-0.10.1.tgz#a34ebf7c2aec701d19ae60dea0a8f1620825fd9e"
+  integrity sha512-OBvHEeer8uT///oTWqgf7kPe0j3hb9IC9ahdk41S4gBHhn5YUHpyXdry2OXp77zPzQ1P6wTY+Ju+/VUcU5mhzA==
+
 vuex@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.1.1.tgz#0c264bfe30cdbccf96ab9db3177d211828a5910e"
