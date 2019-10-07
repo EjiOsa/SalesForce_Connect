@@ -8,16 +8,23 @@
         <h2>
           データの追加をするページ。
         </h2>
+        <v-btn @click="incre">+</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {Component, Prop, Vue} from 'vue-property-decorator';
 
-};
-</script lang="ts">
+@Component
+export default class AddtionPage extends Vue {
+  @Prop()
+    public incre() {
+      alert('increment');
+    }
+}
+</script>
 
 <style>
 

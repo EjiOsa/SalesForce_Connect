@@ -8,16 +8,23 @@
         <h2>
           データの削除をするページ。
         </h2>
+        <v-btn @click="decre">-</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {Component, Prop, Vue} from 'vue-property-decorator';
 
-};
-</script lang="ts">
+@Component
+export default class DeletePage extends Vue {
+  @Prop()
+    public decre() {
+      alert('decrement');
+      }
+}
+</script>
 
 <style>
 

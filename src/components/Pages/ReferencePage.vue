@@ -13,11 +13,14 @@
   </v-container>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {Component, Vue} from 'vue-property-decorator';
 
-};
-</script lang="ts">
+@Component
+export default class ReferencePage extends Vue {
+
+}
+</script>
 
 <style>
 
