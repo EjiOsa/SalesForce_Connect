@@ -8,6 +8,7 @@
         <h2>
           ホーム及びデータの参照をするページ。
         </h2>
+        <v-card><h1>{{$store.state.count}}</h1></v-card>
       </v-flex>
     </v-layout>
   </v-container>

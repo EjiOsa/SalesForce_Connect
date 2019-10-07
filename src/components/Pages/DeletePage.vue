@@ -21,7 +21,7 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 export default class DeletePage extends Vue {
   @Prop()
     public decre() {
-      alert('decrement');
+      this.$store.dispatch('decrement');
       }
 }
 </script>

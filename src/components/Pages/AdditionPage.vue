@@ -21,7 +21,7 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 export default class AddtionPage extends Vue {
   @Prop()
     public incre() {
-      alert('increment');
+      this.$store.commit('increment');
     }
 }
 </script>
