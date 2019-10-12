@@ -33,4 +33,4 @@ class Counter extends VuexModule {
     }
 }
 
-export const counterModule = getModule(Counter);
+export default getModule(Counter);

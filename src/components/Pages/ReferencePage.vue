@@ -19,23 +19,23 @@
 
 <script lang="ts">
 import {Component, Vue, Watch } from 'vue-property-decorator';
-import {counterModule } from '@/store/modules/counter';
+import Counter from '@/store/modules/counter';
 
 @Component
 export default class ReferencePage extends Vue {
   // public countNum: number = counterModule.count; // これはvueが表示された後は動的に反映されないので下のgetで対応。
   public decre() {
-      counterModule.decrementAction();
+      Counter.decrementAction();
       }
   public incre() {
-      counterModule.increment();
+      Counter.increment();
       }
 
   get single() {
-    return counterModule.count;
+    return Counter.count;
   }
   get double() {
-    return counterModule.count * 2;
+    return Counter.count * 2;
   }
 }
 </script>
