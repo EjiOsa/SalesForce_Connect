@@ -10,7 +10,7 @@
         </h2>
         <v-btn @click="incre">+</v-btn>
         <v-btn @click="decre">-</v-btn>
-        <v-card><h1>{{ countNum }}</h1></v-card>
+        <v-card><h1>{{ single }}</h1></v-card>
         <v-card><h1>{{ double }}</h1></v-card>
       </v-flex>
     </v-layout>
@@ -23,7 +23,7 @@ import {counterModule } from '@/store/modules/counter';
 
 @Component
 export default class ReferencePage extends Vue {
-  public countNum: number = counterModule.count;
+  // public countNum: number = counterModule.count; // これはvueが表示された後は動的に反映されないので下のgetで対応。
   public decre() {
       counterModule.decrementAction();
       }
@@ -31,8 +31,11 @@ export default class ReferencePage extends Vue {
       counterModule.increment();
       }
 
+  get single() {
+    return counterModule.count;
+  }
   get double() {
-    return this.countNum * 2;
+    return counterModule.count * 2;
   }
 }
 </script>
