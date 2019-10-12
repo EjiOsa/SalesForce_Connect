@@ -16,12 +16,12 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
+import {counterModule } from '@/store/modules/counter';
 
 @Component
 export default class AddtionPage extends Vue {
-  @Prop()
     public incre() {
-      this.$store.commit('increment');
+      counterModule.increment();
     }
 }
 </script>

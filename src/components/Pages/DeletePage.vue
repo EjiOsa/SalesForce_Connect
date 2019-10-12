@@ -16,12 +16,12 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
+import {counterModule } from '@/store/modules/counter';
 
 @Component
 export default class DeletePage extends Vue {
-  @Prop()
     public decre() {
-      this.$store.dispatch('decrement');
+      counterModule.decrementAction();
       }
 }
 </script>
