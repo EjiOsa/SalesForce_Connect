@@ -1,13 +1,10 @@
 import {Module, VuexModule, getModule, Mutation, Action} from 'vuex-module-decorators';
+import {ICounterState } from '../types';
 import store from '@/store/store';
-
-export interface ICounterState {
-    count: number;
-}
 
 @Module({store, dynamic: true, namespaced: true, name: 'counterName' })
 
-class Counter extends VuexModule {
+class Counter extends VuexModule implements ICounterState {
     public count: number = 10;
 
     @Mutation

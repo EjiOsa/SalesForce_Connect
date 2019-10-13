@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {ICounterState } from './modules/counter';
+import {ICounterState } from './types';
 
 Vue.use(Vuex);
 
