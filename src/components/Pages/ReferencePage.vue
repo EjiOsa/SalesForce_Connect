@@ -21,7 +21,7 @@
                   label="Name"
                   outlined
                   dense
-                  @change="changeName($event)"
+                  @change="changeString('Name', $event)"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4">
@@ -29,6 +29,7 @@
                   label="Type"
                   outlined
                   dense
+                  @change="changeString('Type', $event)"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -59,12 +60,13 @@ export default class ReferencePage extends Vue {
   public incre() {
       Counter.increment();
       }
-  public changeName(newName:string ) {
-      BoardStock.changeNameAction(newName);
+  public changeString(str: string, event: string ) {
+      if (str === 'Name') {
+        BoardStock.changeNameAction(event);
+      } else if (str === 'Type') {
+        BoardStock.changeTypeAction(event);
       }
-  public changeType(newType:string ) {
-      BoardStock.changeTypeAction(newType);
-      }
+  }
 
   get single() {
     return Counter.count;
