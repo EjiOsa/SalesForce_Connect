@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {ICounterState, IBoardStockState } from './types';
+import {ICounterState, IBoardStockStateList } from './types';
 
 Vue.use(Vuex);
 
 export interface IRootState { // 複数のStateを使用するときはここでまとめる。
   counterName: ICounterState;
-  boardStock: IBoardStockState;
+  boardStockList: IBoardStockStateList;
 }
 
 export default new Vuex.Store<IRootState>({});
