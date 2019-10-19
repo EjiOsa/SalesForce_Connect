@@ -53,7 +53,7 @@ import BoardStock from '@/store/modules/boardStock';
 
 @Component
 export default class ReferencePage extends Vue {
-  // public countNum: number = counterModule.count; // これはvueが表示された後は動的に反映されないので下のgetで対応。
+  // public countNum: number = Counter.count; // これはvueが表示された後はリアクティブに反映されないので下のgetで対応。
   public decre() {
       Counter.decrementAction();
       }
