@@ -76,13 +76,13 @@ export default class ReferencePage extends Vue {
   }
 
   get sId() {
-    return BoardStock.stock_list[0].id;
+    return BoardStock.stockList[0].id;
   }
   get sName() {
-    return BoardStock.stock_list[0].name;
+    return BoardStock.stockList[0].name;
   }
   get sType() {
-    return BoardStock.stock_list[0].type__c;
+    return BoardStock.stockList[0].type__c;
   }
 }
 </script>
