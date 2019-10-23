@@ -40,6 +40,7 @@
           <h1>{{ sId }}</h1>
           <h2>{{ sName }}</h2>
           <h2>{{ sType }}</h2>
+          <h2>{{ newStock[0].name }}</h2>
         </v-card>
       </v-flex>
     </v-layout>
@@ -84,6 +85,9 @@ export default class ReferencePage extends Vue {
   get sType() {
     return BoardStock.stockList[0].type__c;
   }
+
+  public newStock: object = BoardStock.new_Stock_List;
+
 }
 </script>
 
