@@ -5,15 +5,15 @@ import store from '@/store/store';
 @Module({store, dynamic: true, namespaced: true, name: 'counterName' })
 
 class Counter extends VuexModule implements ICounterState {
-    public count: number = 10;
+    public COUNT: number = 10;
 
     @Mutation
     public increment() {
-        this.count++;
+        this.COUNT++;
     }
     @Mutation
     public decrement() {
-        this.count--;
+        this.COUNT--;
     }
 
     @Action({})

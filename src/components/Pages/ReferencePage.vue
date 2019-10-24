@@ -68,24 +68,24 @@ export default class ReferencePage extends Vue {
       }
   }
   public changeSalesforce() {
-    BoardStock.salesforce_Stock(); // salesforceにアクセスするメソッドの呼び出し。
+    BoardStock.salesforce_Stock();
   }
 
   get single() {
-    return Counter.count;
+    return Counter.COUNT;
   }
   get double() {
-    return Counter.count * 2;
+    return Counter.COUNT * 2;
   }
 
   get sId() {
-    return BoardStock.stockList[0].id;
+    return BoardStock.STOCK_LIST[0].id;
   }
   get sName() {
-    return BoardStock.stockList[0].name;
+    return BoardStock.STOCK_LIST[0].name;
   }
   get sType() {
-    return BoardStock.stockList[0].type__c;
+    return BoardStock.STOCK_LIST[0].type__c;
   }
 }
 </script>

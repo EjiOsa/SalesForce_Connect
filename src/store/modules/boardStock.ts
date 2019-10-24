@@ -7,30 +7,30 @@ import LCC from 'lightning-container';
 
 class BoardStock extends VuexModule implements IBoardStockStateList {
     // public stock = {id: 1, name: 'test', type__c: 'short'};
-    public stockList = [
+    public STOCK_LIST = [
         {id: 1, name: 'naish', type__c: 'short'},
         {id: 2, name: 'bill', type__c: 'long'},
         {id: 3, name: 'starboard', type__c: 'fun'},
     ];
 
     @Mutation
-    public salesforceResponse(result: any, event: any ): void { // 下のcallApexにカーソルを合わせると必要な引数が表示されて、それを元に引数を設定。　
-        this.stockList[0].name = 'なっしゅ';　// とりあえず、メソッドが走ってるか確認。コンソールログは使えなかった。
+    public salesforceResponse(result: any, event: any ): void {
+        this.STOCK_LIST[0].name = 'なっしゅ';
         // return this.stockList;
     }
     @Action({})
-    public salesforce_Stock(): void { // callApex自体は戻り値がないのでvoid
-        LCC.callApex( // salesforceとやり取りをするためのメソッド。　getをつけていたけど、今回はボタンから起動するため削除。
-            'BoardController.getStocks', // Apexのメソッド名を指定。文字列型。
-            10, // メソッドに渡す値。引数がないからNullにしていたけどエラーになった。
-            this.salesforceResponse, // 上の二つが正しく走るとここのメソッドが呼ばれる。
-            {escape: true}, // これは意味不明。これから要調査。
+    public salesforce_Stock(): void {
+        LCC.callApex(
+            'BoardController.getStocks',
+            10,
+            this.salesforceResponse,
+            {escape: true},
         );
     }
 
     @Mutation
     public changeType(type: string ): void {
-        this.stockList[0].type__c = type;
+        this.STOCK_LIST[0].type__c = type;
     }
     @Action({})
     public changeTypeAction(type: string ) {
@@ -41,7 +41,7 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
 
     @Mutation
     public changeName(name: string ) {
-        this.stockList[0].name = name;
+        this.STOCK_LIST[0].name = name;
     }
     @Action({})
     public changeNameAction(name: string ) {
