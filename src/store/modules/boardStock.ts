@@ -13,13 +13,19 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
         {id: 3, name: 'starboard', type__c: 'fun'},
     ];
 
-    // public newStockList = this.stockList;
-    get new_Stock_List(): object[] {
-        const newStockList = this.stockList;
-        newStockList[0].name = 'ナッシュ';
-        return newStockList;
-        // this.stockList[0].name = 'ナッシュ';
+    @Mutation
+    public salesforceResponse(result: any, event: any ): void { // 下のcallApexにカーソルを合わせると必要な引数が表示されて、それを元に引数を設定。　
+        this.stockList[0].name = 'なっしゅ';　// とりあえず、メソッドが走ってるか確認。コンソールログは使えなかった。
         // return this.stockList;
+    }
+    @Action({})
+    public salesforce_Stock(): void { // callApex自体は戻り値がないのでvoid
+        LCC.callApex( // salesforceとやり取りをするためのメソッド。　getをつけていたけど、今回はボタンから起動するため削除。
+            'BoardController.getStocks', // Apexのメソッド名を指定。文字列型。
+            10, // メソッドに渡す値。引数がないからNullにしていたけどエラーになった。
+            this.salesforceResponse, // 上の二つが正しく走るとここのメソッドが呼ばれる。
+            {escape: true}, // これは意味不明。これから要調査。
+        );
     }
 
     @Mutation

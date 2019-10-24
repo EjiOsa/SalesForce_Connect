@@ -35,12 +35,11 @@
             </v-row>
           </v-container>
         </v-form>
-        
+        <v-btn @click="changeSalesforce">?</v-btn>
         <v-card>
           <h1>{{ sId }}</h1>
           <h2>{{ sName }}</h2>
           <h2>{{ sType }}</h2>
-          <h2>{{ newStock[0].name }}</h2>
         </v-card>
       </v-flex>
     </v-layout>
@@ -68,6 +67,9 @@ export default class ReferencePage extends Vue {
         BoardStock.changeTypeAction(event);
       }
   }
+  public changeSalesforce() {
+    BoardStock.salesforce_Stock(); // salesforceにアクセスするメソッドの呼び出し。
+  }
 
   get single() {
     return Counter.count;
@@ -85,9 +87,6 @@ export default class ReferencePage extends Vue {
   get sType() {
     return BoardStock.stockList[0].type__c;
   }
-
-  public newStock: object = BoardStock.new_Stock_List;
-
 }
 </script>
 
