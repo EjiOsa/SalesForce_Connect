@@ -3,5 +3,5 @@ export interface ICounterState {
 }
 
 export interface IBoardStockStateList {
-    STOCK_LIST: Array<{ id: number; name: string; type__c: string; }>; // 普通の配列
+    STOCK_LIST: Array<{ Id: string; Name: string; type__c: string; }>; // 普通の配列
 }
