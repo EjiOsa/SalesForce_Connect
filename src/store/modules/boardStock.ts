@@ -21,7 +21,7 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
     public salesforce_Stock(): void {
         LCC.callApex(
             'BoardController.getStocks',
-            10,
+            {}, // 引数のなしの場合はNullではなく{}で通る。
             this.salesforceResponse,
             {
                 buffer: true, // default true
