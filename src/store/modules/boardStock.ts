@@ -8,15 +8,14 @@ import LCC from 'lightning-container';
 class BoardStock extends VuexModule implements IBoardStockStateList {
     // public stock = {id: 1, name: 'test', type__c: 'short'};
     public STOCK_LIST = [
-        {id: 1, name: 'naish', type__c: 'short'},
-        {id: 2, name: 'bill', type__c: 'long'},
-        {id: 3, name: 'starboard', type__c: 'fun'},
+        {Id: '1', Name: 'naish', type__c: 'short'},
+        {Id: '2', Name: 'bill', type__c: 'long'},
+        {Id: '3', Name: 'starboard', type__c: 'fun'},
     ];
 
     @Mutation
     public salesforceResponse(result: any, event: any ): void {
-        this.STOCK_LIST[0].name = 'なっしゅ';
-        // return this.stockList;
+        this.STOCK_LIST = result;
     }
     @Action({})
     public salesforce_Stock(): void {
@@ -24,7 +23,11 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
             'BoardController.getStocks',
             10,
             this.salesforceResponse,
-            {escape: true},
+            {
+                buffer: true, // default true
+                escape: true, // default true
+                timeout: 30000, // default 30000 max 120000
+            },
         );
     }
 
@@ -41,7 +44,7 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
 
     @Mutation
     public changeName(name: string ) {
-        this.STOCK_LIST[0].name = name;
+        this.STOCK_LIST[0].Name = name;
     }
     @Action({})
     public changeNameAction(name: string ) {
