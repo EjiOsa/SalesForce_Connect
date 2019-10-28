@@ -36,11 +36,36 @@
           </v-container>
         </v-form>
         <v-btn @click="changeSalesforce">?</v-btn>
-        <v-card>
+        <!-- <v-card>
           <h2>ID : {{ sId }}</h2>
           <h2>Name : {{ sName }}</h2>
           <h2>Type : {{ sType }}</h2>
-        </v-card>
+        </v-card> -->
+        <v-card
+        class="mx-auto"
+        max-width="500"
+        outlined
+        >
+        <v-card-text>
+          <div>Board</div>
+          <h1 class="display-1 text--primary">
+            Name : {{ sName }}
+            </h1>
+            <p>detail</p>
+            <h2 class="text--primary">
+              ID : {{ sId }}<br>
+              Type : {{ sType }}
+            </h2>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn
+            text
+            color="deep-purple accent-4"
+            >
+            DELETE
+            </v-btn>
+          </v-card-actions>
+          </v-card>
       </v-flex>
     </v-layout>
   </v-container>
