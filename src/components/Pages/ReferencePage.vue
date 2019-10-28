@@ -37,9 +37,9 @@
         </v-form>
         <v-btn @click="changeSalesforce">?</v-btn>
         <v-card>
-          <h1>{{ sId }}</h1>
-          <h2>{{ sName }}</h2>
-          <h2>{{ sType }}</h2>
+          <h2>ID : {{ sId }}</h2>
+          <h2>Name : {{ sName }}</h2>
+          <h2>Type : {{ sType }}</h2>
         </v-card>
       </v-flex>
     </v-layout>
@@ -79,13 +79,13 @@ export default class ReferencePage extends Vue {
   }
 
   get sId() {
-    return BoardStock.STOCK_LIST[0].Id;
+    return BoardStock.BOARD_LIST[0].Id;
   }
   get sName() {
-    return BoardStock.STOCK_LIST[0].Name;
+    return BoardStock.BOARD_LIST[1].Name;
   }
   get sType() {
-    return BoardStock.STOCK_LIST[0].type__c;
+    return BoardStock.BOARD_LIST[2].type__c;
   }
 }
 </script>

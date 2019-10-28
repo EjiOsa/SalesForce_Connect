@@ -6,8 +6,7 @@ import LCC from 'lightning-container';
 @Module({store, dynamic: true, namespaced: true, name: 'boardStockList' })
 
 class BoardStock extends VuexModule implements IBoardStockStateList {
-    // public stock = {id: 1, name: 'test', type__c: 'short'};
-    public STOCK_LIST = [
+    public BOARD_LIST = [
         {Id: '1', Name: 'naish', type__c: 'short'},
         {Id: '2', Name: 'bill', type__c: 'long'},
         {Id: '3', Name: 'starboard', type__c: 'fun'},
@@ -15,13 +14,21 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
 
     @Mutation
     public salesforceResponse(result: any, event: any ): void {
-        this.STOCK_LIST = result;
+        this.BOARD_LIST = result;
+
+        // if (!event) { // eventのキャッチができない。eventそのものがないらしい。後日、調整。
+        //     this.changeNameAction('ナッシュ');
+        // } else if (event.type === 'exception') {
+        //     this.changeNameAction('なっしゅ');
+        // } else {
+        //     this.changeNameAction('NAISH');
+        // }
     }
-    @Action({})
+
     public salesforce_Stock(): void {
         LCC.callApex(
             'BoardController.getStocks',
-            {}, // 引数のなしの場合はNullではなく{}で通る。
+            3,
             this.salesforceResponse,
             {
                 buffer: true, // default true
@@ -33,7 +40,7 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
 
     @Mutation
     public changeType(type: string ): void {
-        this.STOCK_LIST[0].type__c = type;
+        this.BOARD_LIST[0].type__c = type;
     }
     @Action({})
     public changeTypeAction(type: string ) {
@@ -44,7 +51,7 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
 
     @Mutation
     public changeName(name: string ) {
-        this.STOCK_LIST[0].Name = name;
+        this.BOARD_LIST[0].Name = name;
     }
     @Action({})
     public changeNameAction(name: string ) {
