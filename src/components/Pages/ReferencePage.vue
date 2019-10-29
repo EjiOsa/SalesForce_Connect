@@ -36,36 +36,39 @@
           </v-container>
         </v-form>
         <v-btn @click="changeSalesforce">?</v-btn>
-        <!-- <v-card>
-          <h2>ID : {{ sId }}</h2>
-          <h2>Name : {{ sName }}</h2>
-          <h2>Type : {{ sType }}</h2>
-        </v-card> -->
-        <v-card
-        class="mx-auto"
-        max-width="500"
-        outlined
-        >
-        <v-card-text>
-          <div>Board</div>
-          <h1 class="display-1 text--primary">
-            Name : {{ sName }}
-            </h1>
-            <p>detail</p>
-            <h2 class="text--primary">
-              ID : {{ sId }}<br>
-              Type : {{ sType }}
-            </h2>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn
-            text
-            color="deep-purple accent-4"
+        <v-container>
+          <v-layout>
+            <v-flex
+            v-for="board in boards" :key="board.Id"
             >
-            DELETE
-            </v-btn>
-          </v-card-actions>
-          </v-card>
+            <v-card
+            min-width="380"
+            class="ma-2 mp-2"
+            outlined
+            >
+            <v-card-text>
+            <div>Board</div>
+            <h1 class="display-1 text--primary">
+              Name : {{ board.Name }}
+              </h1>
+              <p>detail</p>
+              <h2 class="text--primary">
+                ID : {{ board.Id }}<br>
+                Type : {{ board.type__c }}
+                </h2>
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn
+                  text
+                  color="deep-purple accent-4"
+                  >
+                  DELETE
+                  </v-btn>
+                </v-card-actions>
+            </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
       </v-flex>
     </v-layout>
   </v-container>
@@ -103,15 +106,18 @@ export default class ReferencePage extends Vue {
     return Counter.COUNT * 2;
   }
 
-  get sId() {
-    return BoardStock.BOARD_LIST[0].Id;
+  get boards() {
+    return BoardStock.BOARD_LIST;
   }
-  get sName() {
-    return BoardStock.BOARD_LIST[1].Name;
-  }
-  get sType() {
-    return BoardStock.BOARD_LIST[2].type__c;
-  }
+  // get sId() {
+  //   return BoardStock.BOARD_LIST[0].Id;
+  // }
+  // get sName() {
+  //   return BoardStock.BOARD_LIST[1].Name;
+  // }
+  // get sType() {
+  //   return BoardStock.BOARD_LIST[2].type__c;
+  // }
 }
 </script>
 
