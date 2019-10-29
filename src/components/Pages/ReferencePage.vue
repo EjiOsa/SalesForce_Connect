@@ -36,39 +36,7 @@
           </v-container>
         </v-form>
         <v-btn @click="changeSalesforce">?</v-btn>
-        <v-container>
-          <v-layout>
-            <v-flex
-            v-for="board in boards" :key="board.Id"
-            >
-            <v-card
-            min-width="380"
-            class="ma-2 mp-2"
-            outlined
-            >
-            <v-card-text>
-            <div>Board</div>
-            <h1 class="display-1 text--primary">
-              Name : {{ board.Name }}
-              </h1>
-              <p>detail</p>
-              <h2 class="text--primary">
-                ID : {{ board.Id }}<br>
-                Type : {{ board.type__c }}
-                </h2>
-                </v-card-text>
-                <v-card-actions>
-                  <v-btn
-                  text
-                  color="deep-purple accent-4"
-                  >
-                  DELETE
-                  </v-btn>
-                </v-card-actions>
-            </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
+        <BoardDetail/>
       </v-flex>
     </v-layout>
   </v-container>
@@ -78,8 +46,13 @@
 import {Component, Vue, Watch } from 'vue-property-decorator';
 import Counter from '@/store/modules/counter';
 import BoardStock from '@/store/modules/boardStock';
+import BoardDetail from '../Parts/BoardDetail.vue';
 
-@Component
+@Component({
+  components: {
+    BoardDetail,
+  },
+})
 export default class ReferencePage extends Vue {
   // public countNum: number = Counter.count; // これはvueが表示された後はリアクティブに反映されないので下のgetで対応。
   public decre() {
@@ -105,19 +78,6 @@ export default class ReferencePage extends Vue {
   get double() {
     return Counter.COUNT * 2;
   }
-
-  get boards() {
-    return BoardStock.BOARD_LIST;
-  }
-  // get sId() {
-  //   return BoardStock.BOARD_LIST[0].Id;
-  // }
-  // get sName() {
-  //   return BoardStock.BOARD_LIST[1].Name;
-  // }
-  // get sType() {
-  //   return BoardStock.BOARD_LIST[2].type__c;
-  // }
 }
 </script>
 
