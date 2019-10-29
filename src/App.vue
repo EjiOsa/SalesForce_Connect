@@ -9,17 +9,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-// import HelloWorld from './components/HelloWorld.vue';
 import NavBar from './components/NavigationBar.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    // HelloWorld,
     NavBar,
   },
   data: () => ({
-    //
   }),
 });
 </script>
