@@ -36,7 +36,7 @@
           </v-container>
         </v-form>
         <v-btn @click="changeSalesforce">?</v-btn>
-        <BoardDetail btnName= 'REFERENCE'/>
+        <BoardDetail/>
       </v-flex>
     </v-layout>
   </v-container>
