@@ -20,14 +20,7 @@
                     Type : {{ board.type__c }}
                 </h2>
                 </v-card-text>
-                <v-card-actions>
-                    <v-btn
-                    text
-                    color="deep-purple accent-4"
-                    >
-                    {{ btnName }}
-                    </v-btn>
-                </v-card-actions>
+                <component :is="btnName"/>
             </v-card>
             </v-flex>
         </v-layout>
@@ -37,11 +30,18 @@
 <script lang="ts">
 import {Component, Vue, Prop } from 'vue-property-decorator';
 import BoardStock from '@/store/modules/boardStock';
+import DeleteButton from './DeleteButton.vue';
+import UpdateButton from './UpdateButton.vue';
 
-@Component
+@Component({
+    components: {
+    UPDATE: UpdateButton,
+    DELETE: DeleteButton
+    },
+})
 export default class BoardDetail extends Vue {
-    @Prop({ type: String, required: true })
-    private btnName!: 'string';
+    @Prop({ type: String })
+    private btnName?: 'string';
 
     get boards() {
         return BoardStock.BOARD_LIST;
