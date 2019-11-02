@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {ICounterState, IBoardStockStateList } from './types';
+import {IBoardStockStateList } from './types';
+// import {ICounterState, IBoardStockStateList } from './types';　// ここは不要だけど、今後のために複数用は残しておく。
+
 
 Vue.use(Vuex);
 
 export interface IRootState { // 複数のStateを使用するときはここでまとめる。
-  counterName: ICounterState;
+  // counterName: ICounterState;
   boardStockList: IBoardStockStateList;
 }
 
