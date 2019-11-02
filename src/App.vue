@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import NavBar from './components/NavigationBar.vue';
+import NavBar from './components/Parts/NavigationBar.vue';
 
 export default Vue.extend({
   name: 'App',
