@@ -8,7 +8,6 @@
         <h2>
           データの追加をするページ。
         </h2>
-        <v-btn @click="incre">+</v-btn>
         <BoardDetail/>
       </v-flex>
     </v-layout>
@@ -17,7 +16,6 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
-import Counter from '@/store/modules/counter';
 import BoardDetail from '../Parts/BoardDetail.vue';
 
 @Component({
@@ -26,9 +24,7 @@ import BoardDetail from '../Parts/BoardDetail.vue';
   },
 })
 export default class AddtionPage extends Vue {
-    public incre() {
-      Counter.increment();
-    }
+  
 }
 </script>
 

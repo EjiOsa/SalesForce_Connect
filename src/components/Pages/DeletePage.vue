@@ -8,7 +8,6 @@
         <h2>
           データの削除をするページ。
         </h2>
-        <v-btn @click="decre">-</v-btn>
         <BoardDetail btnName= 'DELETE'/>
       </v-flex>
     </v-layout>
@@ -17,7 +16,6 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
-import Counter from '@/store/modules/counter';
 import BoardDetail from '../Parts/BoardDetail.vue';
 
 @Component({
@@ -26,9 +24,6 @@ import BoardDetail from '../Parts/BoardDetail.vue';
   },
 })
 export default class DeletePage extends Vue {
-    public decre() {
-      Counter.decrementAction();
-      }
 }
 </script>
 

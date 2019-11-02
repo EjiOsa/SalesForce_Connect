@@ -8,11 +8,6 @@
         <h2>
           ホーム及びデータの参照をするページ。
         </h2>
-        <v-btn @click="incre">+</v-btn>
-        <v-btn @click="decre">-</v-btn>
-        <v-card><h1>{{ single }}</h1></v-card>
-        <v-card><h1>{{ double }}</h1></v-card>
-        
         <v-form>
           <v-container>
             <v-row>
@@ -54,13 +49,6 @@ import BoardDetail from '../Parts/BoardDetail.vue';
   },
 })
 export default class ReferencePage extends Vue {
-  // public countNum: number = Counter.count; // これはvueが表示された後はリアクティブに反映されないので下のgetで対応。
-  public decre() {
-      Counter.decrementAction();
-      }
-  public incre() {
-      Counter.increment();
-      }
   public changeString(str: string, event: string ) {
       if (str === 'Name') {
         BoardStock.changeNameAction(event);
@@ -70,13 +58,6 @@ export default class ReferencePage extends Vue {
   }
   public changeSalesforce() {
     BoardStock.salesforce_Stock();
-  }
-
-  get single() {
-    return Counter.COUNT;
-  }
-  get double() {
-    return Counter.COUNT * 2;
   }
 }
 </script>
