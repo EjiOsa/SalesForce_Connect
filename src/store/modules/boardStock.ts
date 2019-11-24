@@ -6,15 +6,24 @@ import LCC from 'lightning-container';
 @Module({store, dynamic: true, namespaced: true, name: 'boardStockList' })
 
 class BoardStock extends VuexModule implements IBoardStockStateList {
-    public BOARD_LIST = [
-        {Id: '1', Name: 'naish', type__c: 'short'},
-        {Id: '2', Name: 'bill', type__c: 'long'},
-        {Id: '3', Name: 'starboard', type__c: 'fun'},
-    ];
+  public BOARD_LIST = [
+    {Id: '', Name: '', type__c: ''},
+    // {Id: '1', Name: 'naish', type__c: 'short'},
+    // {Id: '2', Name: 'bill', type__c: 'long'},
+    // {Id: '3', Name: 'starboard', type__c: 'fun'},
+  ];
 
-    @Mutation
-    public salesforceResponse(result: any, event: any ): void {
-        this.BOARD_LIST = result;
+  @Mutation
+  public salesforceResponse(result: any, event: any ): void {
+    if(result){  
+      this.BOARD_LIST = result;
+    } else {
+      this.BOARD_LIST = [
+      {Id: '1', Name: 'naish', type__c: 'short'},
+      {Id: '2', Name: 'bill', type__c: 'long'},
+      {Id: '3', Name: 'starboard', type__c: 'fun'},
+      ]
+    }
 
         // if (!event) { // eventのキャッチができない。eventそのものがないらしい。後日、調整。
         //     this.changeNameAction('ナッシュ');
@@ -25,40 +34,42 @@ class BoardStock extends VuexModule implements IBoardStockStateList {
         // }
     }
 
-    public salesforce_Stock(): void {
-        LCC.callApex(
-            'BoardController.getStocks',
-            3,
-            this.salesforceResponse,
-            {
-                buffer: true, // default true
-                escape: true, // default true
-                timeout: 30000, // default 30000 max 120000
-            },
-        );
-    }
+  @Action({})
+  salesforce_Stock(): object {
+    LCC.callApex(
+      'BoardController.getStocks',
+      3,
+      this.salesforceResponse,
+      {
+        buffer: true, // default true
+        escape: true, // default true
+        timeout: 30000, // default 30000 max 120000
+      },
+    );
+  return this.BOARD_LIST;
+  }
 
-    @Mutation
-    public changeType(type: string ): void {
-        this.BOARD_LIST[0].type__c = type;
-    }
-    @Action({})
-    public changeTypeAction(type: string ) {
-        setTimeout(() => {
-        this.changeType(type);
-        }, 5000);
-    }
+  @Mutation
+  public changeType(type: string ): void {
+    this.BOARD_LIST[0].type__c = type;
+  }
+  @Action({})
+  public changeTypeAction(type: string ) {
+    setTimeout(() => {
+    this.changeType(type);
+    }, 5000);
+  }
 
-    @Mutation
-    public changeName(name: string ) {
-        this.BOARD_LIST[0].Name = name;
-    }
-    @Action({})
-    public changeNameAction(name: string ) {
-        setTimeout(() => {
-        this.changeName(name);
-        }, 1000);
-    }
+  @Mutation
+  public changeName(name: string ) {
+      this.BOARD_LIST[0].Name = name;
+  }
+  @Action({})
+  public changeNameAction(name: string ) {
+    setTimeout(() => {
+      this.changeName(name);
+    }, 1000);
+  }
 }
 
 export default getModule(BoardStock);

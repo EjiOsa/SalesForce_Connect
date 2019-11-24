@@ -30,7 +30,7 @@
             </v-row>
           </v-container>
         </v-form>
-        <v-btn @click="changeSalesforce">?</v-btn>
+        <!-- <v-btn @click="changeSalesforce">?</v-btn> -->
         <BoardDetail/>
       </v-flex>
     </v-layout>
@@ -39,7 +39,6 @@
 
 <script lang="ts">
 import {Component, Vue, Watch } from 'vue-property-decorator';
-import Counter from '@/store/modules/counter';
 import BoardStock from '@/store/modules/boardStock';
 import BoardDetail from '../Parts/BoardDetail.vue';
 
@@ -56,7 +55,7 @@ export default class ReferencePage extends Vue {
         BoardStock.changeTypeAction(event);
       }
   }
-  public changeSalesforce() {
+  public created() {
     BoardStock.salesforce_Stock();
   }
 }
