@@ -24,7 +24,7 @@ import BoardDetail from '../Parts/BoardDetail.vue';
   },
 })
 export default class AddtionPage extends Vue {
-  
+
 }
 </script>
 

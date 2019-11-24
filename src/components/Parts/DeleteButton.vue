@@ -1,18 +1,18 @@
 <template>
-    <v-container>
-        <v-layout>
-            <v-flex>
-                <v-card-actions>
-                    <v-btn
-                    text
-                    color="deep-purple accent-4"
-                    >
-                    DELETE
-                    </v-btn>
-                </v-card-actions>
-            </v-flex>
-        </v-layout>
-    </v-container>
+  <v-container>
+    <v-layout>
+      <v-flex>
+        <v-card-actions>
+          <v-btn
+            text
+            color="deep-purple accent-4"
+          >
+          DELETE
+          </v-btn>
+        </v-card-actions>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script lang="ts">
